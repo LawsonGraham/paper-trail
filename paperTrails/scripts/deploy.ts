@@ -27,10 +27,10 @@ async function main() {
   // console.log('Authenticator contract verified!');
   console.log('run this in the console after a bit:');
   console.log(
-    `npx hardhat verify --network mumbai ${contract2.address} ${contract.address}`
+    `npx hardhat verify --network arbitrum ${contract2.address} ${contract.address}`
   );
   console.log(
-    `npx hardhat verify --network mumbai --contract contracts/AuthToken.sol:AuthToken ${contract.address}`
+    `npx hardhat verify --network arbitrum --contract contracts/AuthToken.sol:AuthToken ${contract.address}`
   );
 }
 

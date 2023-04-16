@@ -70,6 +70,7 @@ contract Authenticator is Ownable {
     address public authNFT;
     mapping(address => request) public requests;
     uint public totalUploads = 0;
+    request[] public allRequests;
     mapping(address => mapping(address => uint)) public hasVoted;
 
     constructor(address _authNFT) {
@@ -113,6 +114,7 @@ contract Authenticator is Ownable {
             requests[msg.sender].nonce
         );
         totalUploads += 1;
+        allRequests.push(requests[msg.sender]);
     }
 
     function deleteRequest() public {
