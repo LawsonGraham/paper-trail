@@ -19,8 +19,10 @@ const StatsCard = () => {
   const [totalUploads, setTotalUploads] = useState();
 
   useEffect(() => {
-    setTotalUploads(BigNumber.from(data[0]).toString());
-    setContributors(BigNumber.from(data[1]).toString());
+    if (data) {
+      setTotalUploads(BigNumber.from(data[0]).toString());
+      setContributors(BigNumber.from(data[1]).toString());
+    }
   }, [isLoading]);
 
   return (
