@@ -1,5 +1,5 @@
-export const AUTH_ADDRESS = '0x3b30D4126945Db2df1D5a6fd927F336b243939AB';
-export const TOKEN_ADDRESS = '0xd4f2CDfC07941BCD8bD3cb5d875572e24adCb155';
+export const AUTH_ADDRESS = '0x72ca56BF133f877853D64cDa21F7c36dbD3f0c34';
+export const TOKEN_ADDRESS = '0xB880B452ca4e591540Bc451D716321d079F77bA3';
 export const TOKEN_ABI = [
   {
     inputs: [],
@@ -1197,6 +1197,66 @@ export const AUTH_ABI = [
         internalType: 'struct Authenticator.request',
         name: '',
         type: 'tuple',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [],
+    name: 'getRequests',
+    outputs: [
+      {
+        components: [
+          {
+            internalType: 'address',
+            name: 'requester',
+            type: 'address',
+          },
+          {
+            internalType: 'string',
+            name: 'mediaRef',
+            type: 'string',
+          },
+          {
+            internalType: 'uint256',
+            name: 'yea',
+            type: 'uint256',
+          },
+          {
+            internalType: 'uint256',
+            name: 'nay',
+            type: 'uint256',
+          },
+          {
+            internalType: 'uint256',
+            name: 'N',
+            type: 'uint256',
+          },
+          {
+            internalType: 'uint256',
+            name: 'V',
+            type: 'uint256',
+          },
+          {
+            internalType: 'uint256',
+            name: 'expiration',
+            type: 'uint256',
+          },
+          {
+            internalType: 'uint256',
+            name: 'nonce',
+            type: 'uint256',
+          },
+          {
+            internalType: 'bool',
+            name: 'isVerified',
+            type: 'bool',
+          },
+        ],
+        internalType: 'struct Authenticator.request[]',
+        name: '',
+        type: 'tuple[]',
       },
     ],
     stateMutability: 'view',
