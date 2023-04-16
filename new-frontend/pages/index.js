@@ -15,7 +15,7 @@ export default function Home() {
         <UploadsCard />
       </div>
 
-      <p className="text-center pt-4">rawr lionhacks 🦁</p>
+      <p className="text-center mt-4 mb-4">rawr lionhacks 🦁</p>
     </>
   );
 }
