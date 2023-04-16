@@ -155,6 +155,14 @@ contract Authenticator is Ownable {
         return hasVoted[_verifier][_requester];
     }
 
+    function getNumRequests() public view returns (uint) {
+        return totalUploads;
+    }
+
+    function getRequest(uint index) public view returns (request memory) {
+        return allRequests[index];
+    }
+
     function assertValidity(
         bool _condition,
         address _requester,
