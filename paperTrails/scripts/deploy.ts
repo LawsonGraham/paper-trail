@@ -29,6 +29,9 @@ async function main() {
   console.log(
     `npx hardhat verify --network mumbai ${contract2.address} ${contract.address}`
   );
+  console.log(
+    `npx hardhat verify --network mumbai --contract contracts/AuthToken.sol:AuthToken ${contract.address}`
+  );
 }
 
 // We recommend this pattern to be able to use async/await everywhere
