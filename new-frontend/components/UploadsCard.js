@@ -1,6 +1,17 @@
 import ArticleCard from './ArticleCard';
 
 const UploadsCard = () => {
+  const { data, isError, isLoading } = useContractReads({
+    contracts: [
+      { address: AUTH_ADDRESS, abi: AUTH_ABI, functionName: 'totalUploads' },
+      {
+        address: TOKEN_ADDRESS,
+        abi: TOKEN_ABI,
+        functionName: 'totalSupply',
+      },
+    ],
+  });
+
   return (
     <div class="block w-full p-6 bg-white border border-gray-200 rounded-lg shadow ">
       <h5 class="mb-4 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
