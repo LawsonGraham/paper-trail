@@ -1024,6 +1024,65 @@ export const AUTH_ABI = [
   {
     inputs: [
       {
+        internalType: 'uint256',
+        name: '',
+        type: 'uint256',
+      },
+    ],
+    name: 'allRequests',
+    outputs: [
+      {
+        internalType: 'address',
+        name: 'requester',
+        type: 'address',
+      },
+      {
+        internalType: 'string',
+        name: 'mediaRef',
+        type: 'string',
+      },
+      {
+        internalType: 'uint256',
+        name: 'yea',
+        type: 'uint256',
+      },
+      {
+        internalType: 'uint256',
+        name: 'nay',
+        type: 'uint256',
+      },
+      {
+        internalType: 'uint256',
+        name: 'N',
+        type: 'uint256',
+      },
+      {
+        internalType: 'uint256',
+        name: 'V',
+        type: 'uint256',
+      },
+      {
+        internalType: 'uint256',
+        name: 'expiration',
+        type: 'uint256',
+      },
+      {
+        internalType: 'uint256',
+        name: 'nonce',
+        type: 'uint256',
+      },
+      {
+        internalType: 'bool',
+        name: 'isVerified',
+        type: 'bool',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
         internalType: 'bool',
         name: '_condition',
         type: 'bool',
@@ -1062,6 +1121,85 @@ export const AUTH_ABI = [
     name: 'deleteRequest',
     outputs: [],
     stateMutability: 'nonpayable',
+    type: 'function',
+  },
+  {
+    inputs: [],
+    name: 'getNumRequests',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: '',
+        type: 'uint256',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'uint256',
+        name: 'index',
+        type: 'uint256',
+      },
+    ],
+    name: 'getRequest',
+    outputs: [
+      {
+        components: [
+          {
+            internalType: 'address',
+            name: 'requester',
+            type: 'address',
+          },
+          {
+            internalType: 'string',
+            name: 'mediaRef',
+            type: 'string',
+          },
+          {
+            internalType: 'uint256',
+            name: 'yea',
+            type: 'uint256',
+          },
+          {
+            internalType: 'uint256',
+            name: 'nay',
+            type: 'uint256',
+          },
+          {
+            internalType: 'uint256',
+            name: 'N',
+            type: 'uint256',
+          },
+          {
+            internalType: 'uint256',
+            name: 'V',
+            type: 'uint256',
+          },
+          {
+            internalType: 'uint256',
+            name: 'expiration',
+            type: 'uint256',
+          },
+          {
+            internalType: 'uint256',
+            name: 'nonce',
+            type: 'uint256',
+          },
+          {
+            internalType: 'bool',
+            name: 'isVerified',
+            type: 'bool',
+          },
+        ],
+        internalType: 'struct Authenticator.request',
+        name: '',
+        type: 'tuple',
+      },
+    ],
+    stateMutability: 'view',
     type: 'function',
   },
   {
