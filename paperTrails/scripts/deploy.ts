@@ -1,25 +1,34 @@
-// We require the Hardhat Runtime Environment explicitly here. This is optional
-// but useful for running the script in a standalone fashion through `node <script>`.
-//
-// When running the script with `npx hardhat run <script>` you'll find the Hardhat
-// Runtime Environment's members available in the global scope.
-import { ethers } from "hardhat";
+import { ethers, run } from 'hardhat';
 
 async function main() {
-  // Hardhat always runs the compile task when running scripts with its command
-  // line interface.
-  //
-  // If this script is run directly using `node` you may want to call compile
-  // manually to make sure everything is compiled
-  // await hre.run('compile');
+  const tokenFactory = await ethers.getContractFactory('AuthToken');
+  const contract = await tokenFactory.deploy();
+  await contract.deployed();
+  await contract.mint('0x1DA8CDb1E4e27Ec2b1F643675691776e35437C25');
 
-  // We get the contract to deploy
-  const Greeter = await ethers.getContractFactory("Greeter");
-  const greeter = await Greeter.deploy("Hello, Hardhat!");
+  console.log('NFT deployed to:', contract.address);
 
-  await greeter.deployed();
+  const authenticatorFactory = await ethers.getContractFactory('Authenticator');
+  const contract2 = await authenticatorFactory.deploy(contract.address);
+  await contract2.deployed();
+  console.log('Authenticator deployed to:', contract2.address);
 
-  console.log("Greeter deployed to:", greeter.address);
+  // doesn't work rip
+  // console.log('Waiting for Authenticator bytecode...');
+  // await ethers.provider.getCode(contract2.address);
+
+  // await run('verify:verify', {
+  //   address: contract2.address,
+  //   constructorArguments: [contract.address],
+  //   constructorArgumentsTypes: ['address'],
+  //   network: 'mumbai',
+  // });
+
+  // console.log('Authenticator contract verified!');
+  console.log('run this in the console after a bit:');
+  console.log(
+    `npx hardhat verify --network mumbai ${contract2.address} ${contract.address}`
+  );
 }
 
 // We recommend this pattern to be able to use async/await everywhere
