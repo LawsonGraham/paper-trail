@@ -163,6 +163,10 @@ contract Authenticator is Ownable {
         return allRequests[index];
     }
 
+    function getRequests() public view returns (request[] memory) {
+        return allRequests;
+    }
+
     function assertValidity(
         bool _condition,
         address _requester,
